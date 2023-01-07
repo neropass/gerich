@@ -5,10 +5,12 @@ import images from "../../constants/images"
 import './Navbar.css';
 
 const Navbar = () => {
+  // States for burger nav
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
   return (
     <nav className='app__navbar'>
+      {/* Links for big resolution screens */}
       <div className='app__navbar-logo'>
         <img src={images.gericht} alt="app logo" />
       </div>
@@ -20,15 +22,19 @@ const Navbar = () => {
         <li className='p__opensans'><a href="#awards">Awards</a></li>
         <li className='p__opensans'><a href="#contact">Contact</a></li>
       </ul>
-
+      
+      {/* Button on the right side of the mune */}
       <div className='app__navbar-login'>
         <a href="#login" className='p__opensans'>Log In / Register</a>
         <div />
         <a href="/" className='p__opensans'>Book Table</a>
       </div>
+
+      {/* Burger menu button */}
       <div className='app__navbar-smallscreen'>
         <GiHamburgerMenu color='#fff' fontSize={27} onClick={() => setToggleMenu(true)} />
 
+      {/* Links for small resolution screens */}
         {toggleMenu && (
           <div className='app__navbar-smallscreen_overlay flex__center slide-bottom'>
             <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
